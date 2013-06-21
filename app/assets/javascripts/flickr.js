@@ -1,5 +1,16 @@
+var search;
+var per_page = 20;
+var page = 1;
+var json_results;
+
 function search_flickr(){
-  console.log('Searching...');
+  search = $('#search').val();
+  var url = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=4c6e1f137bbeb666a1c0a884b609e286&text=' + search + '&per_page=' + per_page + '&page=' + page + '&format=json&jsoncallback=?'
+  json_results = $.getJSON(url,
+    function(data){
+      console.log(data);
+    }
+  );
 }
 
 //jQuery alternative to $(document).ready(function(){}); that is prettier (less verbose)

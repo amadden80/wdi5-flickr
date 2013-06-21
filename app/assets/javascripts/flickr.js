@@ -15,7 +15,9 @@ function search_flickr(){
 
 
 function get_photo_src(index){
-
+  var photo = json_results.photos.photo[index]
+  var src = "http://farm"+ photo.farm +".static.flickr.com/"+ photo.server +"/"+ photo.id +"_"+ photo.secret +"_m.jpg";
+  return src;
 }
 
 //jQuery alternative to $(document).ready(function(){}); that is prettier (less verbose)
